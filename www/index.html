@@ -65,7 +65,7 @@
 <div class="clearfix"></div>
 
 
-<div class="container-fluid" ng-show="page=='home'">
+<div class="container-fluid" ng-show="page=='home'" onclick="$('#myNavmenu').offcanvas('hide')">
     <div class="">
         <div class="col-xs-4">
             <div class="box-top box-view">15,145<br/>VIEWs</div>
@@ -125,8 +125,11 @@
 </div>
 
 
+<div class="container-fluid" ng-show="page=='inbox'" onclick="$('#myNavmenu').offcanvas('hide')">
+</div>
 
-
+<div class="container-fluid" ng-show="page=='qr'" onclick="$('#myNavmenu').offcanvas('hide')">
+</div>
 
 
 
@@ -153,6 +156,7 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jasny-bootstrap.min.js"></script>

@@ -183,3 +183,21 @@ var app = angular.module("myPageApp", [])
         $scope.page='home';
     });
 
+
+
+$(function(){
+    // Bind the swipeleftHandler callback function to the swipe event on div.box
+    $( "body" ).on( "swipeleft", swipeLeftHandler );
+    $( "body" ).on( "swiperight", swipeRightHandler );
+
+    // Callback function references the event target and adds the 'swipeleft' class to it
+    function swipeLeftHandler( event ){
+        $('#myNavmenu').offcanvas('hide')
+    }
+
+    function swipeRightHandler( event ){
+        $('#myNavmenu').offcanvas('show')
+    }
+
+
+});
