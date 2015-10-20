@@ -274,3 +274,24 @@ nav#myNavmenu {
     padding: 0 5px;
     margin-bottom: 5px;
 }
+.summary-left {
+    color: #23415D;
+    background-color: #C6C6C6;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 0 0;
+    height: 40px;
+}
+
+.summary-right {
+    color: #DFE2E5;
+    background-color: #066FA0;
+    font-size: 22px;
+    font-weight: bold;
+    height: 40px;
+    padding: 5px 0 0;
+    text-align: center;
+}
+.summary {
+    padding: 0 5px;
+}
