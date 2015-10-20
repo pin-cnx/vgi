@@ -201,4 +201,71 @@ $(function(){
     }
 
 
+    //Morris.Donut({
+    //    element: 'box-view',
+    //    data: [
+    //        {label: "VIEWs", value: 12200},
+    //        {label: "", value: 5000}
+    //    ],
+    //    colors:[
+    //        '#FFF','#000'
+    //    ]
+    //});
+
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    var viewCircle = Circles.create({
+        id:                  'box-view',
+        radius:              35,
+        value:               12200,
+        maxValue:            20000,
+        width:               3,
+        text:                function(value){return numberWithCommas(value)+'<br/><span>VIEWs</span>';},
+        colors:              ['#5472B2','#FFF'],
+        duration:            500,
+        wrpClass:            'circles-wrp',
+        textClass:           'circles-text',
+        valueStrokeClass:    'circles-valueStroke',
+        maxValueStrokeClass: 'circles-maxValueStroke',
+        styleWrapper:        true,
+        styleText:           true
+    });
+
+    var clickCircle = Circles.create({
+        id:                  'box-click',
+        radius:              35,
+        value:               1586,
+        maxValue:            2000,
+        width:               3,
+        text:                function(value){return numberWithCommas(value)+'<br/><span>CLICKs</span>';},
+        colors:              ['#2AC2F8','#FFF'],
+        duration:            500,
+        wrpClass:            'circles-wrp',
+        textClass:           'circles-text',
+        valueStrokeClass:    'circles-valueStroke',
+        maxValueStrokeClass: 'circles-maxValueStroke',
+        styleWrapper:        true,
+        styleText:           true
+    });
+
+    var redeemCircle = Circles.create({
+        id:                  'box-redeem',
+        radius:              35,
+        value:               496,
+        maxValue:            1000,
+        width:               3,
+        text:                function(value){return numberWithCommas(value)+'<br/><span>REDEEMs</span>';},
+        colors:              ['#B49685','#FFF'],
+        duration:            500,
+        wrpClass:            'circles-wrp',
+        textClass:           'circles-text',
+        valueStrokeClass:    'circles-valueStroke',
+        maxValueStrokeClass: 'circles-maxValueStroke',
+        styleWrapper:        true,
+        styleText:           true
+    });
+
 });
