@@ -21,140 +21,14 @@
 }
 
 body {
-    -webkit-touch-callout: none;/* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;/* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;/* prevent copy paste, to allow, change 'none' to 'text' */
+    -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color: #E4E4E4;
     background-image: linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    -webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    -ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    -webkit-gradient(
+    background-image: -webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -webkit-gradient(
             linear,
             left top,
             left bottom,
@@ -323,21 +197,24 @@ nav#myNavmenu {
     text-align: center;
     height: 80px;
 }
+
 .head-gap {
     background-color: #143255;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     display: block;
     height: 12px;
 }
+
 .foot-inbox {
     background-color: #133453;
     padding: 14px 0 0 61px;
     height: 54px;
     background-image: url("../img/button/inbox.png");
-    background-size: cover;
+    background-size: inherit;
     line-height: 1;
+    background-repeat: no-repeat;
 }
 
 .foot-qr {
@@ -345,7 +222,8 @@ nav#myNavmenu {
     padding: 19px 0 0 40px;
     height: 54px;
     background-image: url("../img/button/qr.png");
-    background-size: cover;
+    background-size: inherit;
+    background-repeat: no-repeat;
 }
 
 .footer {
@@ -356,9 +234,14 @@ nav#myNavmenu {
     font-size: 14px;
     font-weight: bold;
 }
+
 .foot-inbox span {
     font-size: 11px;
     font-weight: normal;
     color: #94c0d5;
     /* margin-top: -5px; */
 }
+
+.head-text {
+
+    color: #FFF;display: block;padding: 14px 0 0 0;font-size: 16px;font-weight: bold;}
