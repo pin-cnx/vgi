@@ -23,29 +23,29 @@ var destinationType; // sets the format of returned value
 
 var appCordova = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
+    bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         //document.getElementById('scan').addEventListener('click', this.scan, false);
-       // document.getElementById('encode').addEventListener('click', this.encode, false);
+        // document.getElementById('encode').addEventListener('click', this.encode, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         app.receivedEvent('deviceready');
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
+        pictureSource = navigator.camera.PictureSourceType;
+        destinationType = navigator.camera.DestinationType;
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -56,48 +56,46 @@ var appCordova = {
         console.log('Received Event: ' + id);
     },
 
-    scan: function() {
+    scan: function () {
         console.log('scanning');
 
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-        scanner.scan( function (result) {
+        scanner.scan(function (result) {
 
             alert("We got a barcode\n" +
-            "Result: " + result.text + "\n" +
-            "Format: " + result.format + "\n" +
-            "Cancelled: " + result.cancelled);
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
 
-           console.log("Scanner result: \n" +
+            console.log("Scanner result: \n" +
                 "text: " + result.text + "\n" +
                 "format: " + result.format + "\n" +
                 "cancelled: " + result.cancelled + "\n");
             document.getElementById("info").innerHTML = result.text;
             console.log(result);
             /*
-            if (args.format == "QR_CODE") {
-                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
-            }
-            */
+             if (args.format == "QR_CODE") {
+             window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+             }
+             */
 
         }, function (error) {
             console.log("Scanning failed: ", error);
-        } );
+        });
     },
 
-    encode: function() {
+    encode: function () {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-            alert("encode success: " + success);
-          }, function(fail) {
-            alert("encoding failed: " + fail);
-          }
+        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function (success) {
+                alert("encode success: " + success);
+            }, function (fail) {
+                alert("encoding failed: " + fail);
+            }
         );
 
     },
-
-
 
 
 };
@@ -146,25 +144,31 @@ function onPhotoURISuccess(imageURI) {
 //
 function capturePhoto() {
     // Take picture using device camera and retrieve image as base64-encoded string
-    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        destinationType: destinationType.DATA_URL });
+    navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
+        quality: 50,
+        destinationType: destinationType.DATA_URL
+    });
 }
 
 // A button will call this function
 //
 function capturePhotoEdit() {
     // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-        destinationType: destinationType.DATA_URL });
+    navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
+        quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL
+    });
 }
 
 // A button will call this function
 //
 function getPhoto(source) {
     // Retrieve image file location from specified source
-    navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+    navigator.camera.getPicture(onPhotoURISuccess, onFail, {
+        quality: 50,
         destinationType: destinationType.FILE_URI,
-        sourceType: source });
+        sourceType: source
+    });
 }
 
 // Called if something bad happens.
@@ -177,29 +181,130 @@ function onFail(message) {
 appCordova.initialize();
 
 
-
 var app = angular.module("myPageApp", [])
-    .controller("myPageCtrl", function($scope) {
-        $scope.page='home';
+    .controller("myPageCtrl", function ($scope) {
+        $scope.page = 'home';
+        $scope.graph = 'view';
+        $scope.topics = [
+            {k:'A',v:20,n:'ชานมน้ำผึ้ง+ไข่มุก'},
+            {k:'M1',v:45,n:'น้ำส้ม'},
+            {k:'J2',v:10,n:'Blue drill'},
+            {k:'O',v:58,n:'โซดา'},
+            {k:'N',v:94,n:'โซดา'},
+            {k:'D',v:71,n:'กาแฟ'},
+            {k:'F',v:66,n:'ขนมขบเคี้ยว'},
+
+
+        ];
+        $scope.activeIndex = 0;
+        $scope.setTopic = function(index){
+            $scope.activeIndex = index;
+        }
+
     });
 
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
-$(function(){
+var viewCircle = function () {
+    Circles.create({
+        id: 'box-view',
+        radius: 35,
+        value: 12200,
+        maxValue: 20000,
+        width: 3,
+        text: function (value) {
+            return numberWithCommas(value) + '<br/><span>VIEWs</span>';
+        },
+        colors: ['#5472B2', '#FFF'],
+        duration: 500,
+        wrpClass: 'circles-wrp',
+        textClass: 'circles-text',
+        valueStrokeClass: 'circles-valueStroke',
+        maxValueStrokeClass: 'circles-maxValueStroke',
+        styleWrapper: true,
+        styleText: true
+    });
+}
+
+var clickCircle = function () {
+    Circles.create({
+        id: 'box-click',
+        radius: 35,
+        value: 1586,
+        maxValue: 2000,
+        width: 3,
+        text: function (value) {
+            return numberWithCommas(value) + '<br/><span>CLICKs</span>';
+        },
+        colors: ['#2AC2F8', '#FFF'],
+        duration: 500,
+        wrpClass: 'circles-wrp',
+        textClass: 'circles-text',
+        valueStrokeClass: 'circles-valueStroke',
+        maxValueStrokeClass: 'circles-maxValueStroke',
+        styleWrapper: true,
+        styleText: true
+    });
+}
+
+
+var redeemCircle = function () {
+    Circles.create({
+        id: 'box-redeem',
+        radius: 35,
+        value: 496,
+        maxValue: 1000,
+        width: 3,
+        text: function (value) {
+            return numberWithCommas(value) + '<br/><span>REDEEMs</span>';
+        },
+        colors: ['#B49685', '#FFF'],
+        duration: 500,
+        wrpClass: 'circles-wrp',
+        textClass: 'circles-text',
+        valueStrokeClass: 'circles-valueStroke',
+        maxValueStrokeClass: 'circles-maxValueStroke',
+        styleWrapper: true,
+        styleText: true
+    });
+};
+
+$(function () {
     //$("#myNavmenu").offcanvas({ autohide: false ,recalc:false})
     // Bind the swipeleftHandler callback function to the swipe event on div.box
-    $( "body" ).on( "swipeleft", swipeLeftHandler );
-    $( "body" ).on( "swiperight", swipeRightHandler );
+    $("body").on("swipeleft", swipeLeftHandler);
+    $("body").on("swiperight", swipeRightHandler);
 
+    $(".graph").on("swipeleft", function(){ });
+    $(".graph").on("swiperight", function(){ });
     // Callback function references the event target and adds the 'swipeleft' class to it
-    function swipeLeftHandler( event ){
+    function swipeLeftHandler(event) {
         $('#myNavmenu').offcanvas('hide')
     }
 
-    function swipeRightHandler( event ){
+    function swipeRightHandler(event) {
         $('#myNavmenu').offcanvas('show')
     }
 
+
+    //Morris.Line({
+    //    element: 'graph-view',
+    //    data: [
+    //        { y: '10', a: 100},
+    //        { y: '11', a: 75 },
+    //        { y: '12', a: 50},
+    //        { y: '13', a: 75 },
+    //        { y: '14', a: 50 },
+    //        { y: '15', a: 75 },
+    //        { y: '16', a: 100 }
+    //    ],
+    //    xkey: 'y',
+    //    ykeys: ['a'],
+    //    labels: ['Series A', 'Series B']
+    //});
 
     //Morris.Donut({
     //    element: 'box-view',
@@ -211,61 +316,54 @@ $(function(){
     //        '#FFF','#000'
     //    ]
     //});
-
-
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-
-    var viewCircle = Circles.create({
-        id:                  'box-view',
-        radius:              35,
-        value:               12200,
-        maxValue:            20000,
-        width:               3,
-        text:                function(value){return numberWithCommas(value)+'<br/><span>VIEWs</span>';},
-        colors:              ['#5472B2','#FFF'],
-        duration:            500,
-        wrpClass:            'circles-wrp',
-        textClass:           'circles-text',
-        valueStrokeClass:    'circles-valueStroke',
-        maxValueStrokeClass: 'circles-maxValueStroke',
-        styleWrapper:        true,
-        styleText:           true
+    new Chartist.Line('#graph-view', {
+        labels: [ 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22],
+        series: [
+            [556, 588, 1010, 886, 742, 588, 444, null, null, null, 1220, 1440, 788, 834, 665, 914],
+        ]
+    }, {
+        fullWidth: true,
+        chartPadding: {
+            right: 10
+        },
+        low: 0,
+        width: '500px',
+        height: '100px'
     });
 
-    var clickCircle = Circles.create({
-        id:                  'box-click',
-        radius:              35,
-        value:               1586,
-        maxValue:            2000,
-        width:               3,
-        text:                function(value){return numberWithCommas(value)+'<br/><span>CLICKs</span>';},
-        colors:              ['#2AC2F8','#FFF'],
-        duration:            500,
-        wrpClass:            'circles-wrp',
-        textClass:           'circles-text',
-        valueStrokeClass:    'circles-valueStroke',
-        maxValueStrokeClass: 'circles-maxValueStroke',
-        styleWrapper:        true,
-        styleText:           true
+    new Chartist.Line('#graph-click', {
+        labels: [ 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22],
+        series: [
+            [10, 15, null, 12, null, 10, 12, 15, null, null, 12, null, 14, null, null, null],
+        ]
+    }, {
+        fullWidth: true,
+        chartPadding: {
+            right: 10
+        },
+        low: 0,
+        width: '500px',
+        height: '100px'
     });
 
-    var redeemCircle = Circles.create({
-        id:                  'box-redeem',
-        radius:              35,
-        value:               496,
-        maxValue:            1000,
-        width:               3,
-        text:                function(value){return numberWithCommas(value)+'<br/><span>REDEEMs</span>';},
-        colors:              ['#B49685','#FFF'],
-        duration:            500,
-        wrpClass:            'circles-wrp',
-        textClass:           'circles-text',
-        valueStrokeClass:    'circles-valueStroke',
-        maxValueStrokeClass: 'circles-maxValueStroke',
-        styleWrapper:        true,
-        styleText:           true
+    new Chartist.Line('#graph-redeem', {
+        labels: [ 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22],
+        series: [
+            [null, null, null, null, 3, 4, 1, 3, 4, 6, 7, 9, 5, null, null, null]
+        ]
+    }, {
+        fullWidth: true,
+        chartPadding: {
+            right: 10
+        },
+        low: 0,
+        width: '500px',
+        height: '100px'
     });
 
+
+
+    viewCircle();
+    clickCircle();
+    redeemCircle();
 });

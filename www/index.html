@@ -41,9 +41,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/jasny-bootstrap.min.css" rel="stylesheet" media="screen">
     <!--<link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" media="screen">-->
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="js/morris.js/morris.css">
 
+    <link rel="stylesheet" href="js/morris.js/morris.css">
+    <link rel="stylesheet" href="css/chartist.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body ng-controller="myPageCtrl">
 <div class="head-gap"></div>
@@ -73,17 +75,17 @@
     <div class="container-fluid" ng-show="page=='home'" onclick="$('#myNavmenu').offcanvas('hide')">
         <div class="">
             <div class="col-xs-4">
-                <div class="box-top box-view">
+                <div class="box-top box-view" ng-click="graph='view'" onclick="viewCircle()">
                     <div id="box-view"></div>
                 </div>
             </div>
             <div class="col-xs-4">
-                <div class="box-top box-click">
+                <div class="box-top box-click" ng-click="graph='click'" onclick="clickCircle()">
                     <div id="box-click"></div>
                 </div>
             </div>
             <div class="col-xs-4">
-                <div class="box-top box-redeem">
+                <div class="box-top box-redeem" ng-click="graph='redeem'" onclick="redeemCircle()">
                     <div id="box-redeem"></div>
                 </div>
             </div>
@@ -91,15 +93,28 @@
         </div>
         <div class="detail">
             <div class="col-xs-4">
-                <li class="tab active"></li>
+                <li class="tab" ng-show="graph=='view'"></li>
             </div>
             <div class="col-xs-4">
-                <li class="tab"></li>
+                <li class="tab" ng-show="graph=='click'"></li>
             </div>
             <div class="col-xs-4">
-                <li class="tab"></li>
+                <li class="tab" ng-show="graph=='redeem'"></li>
             </div>
-            <div class="col-xs-12 graph">
+            <div class="col-xs-12 graph" ng-show="graph=='view'">
+
+                <div id="graph-view"></div>
+                <span class="date">21 ตุลาคม 2558</span>
+            </div>
+            <div class="col-xs-12 graph" ng-show="graph=='click'">
+
+                <div id="graph-click"></div>
+                <span class="date">21 ตุลาคม 2558</span>
+            </div>
+            <div class="col-xs-12 graph" ng-show="graph=='redeem'">
+
+                <div id="graph-redeem"></div>
+                <span class="date">21 ตุลาคม 2558</span>
 
             </div>
             <div class="clearfix"></div>
@@ -107,8 +122,28 @@
 
         <div class="detail">
             <div class="col-xs-8 detail-left">
+                <div ng-repeat="topic in topics track by $index" class="topic" ng-click="setTopic($index)"
+                     ng-class="{'active':activeIndex == $index}">
+                    <span class="k">{{topic.k}}</span>
+
+                    <div class="g" style="width: {{topic.v/100*60}}%"></div>
+                    <div class="v">{{topic.v}}</div>
+                    <div class="tri"></div>
+                </div>
             </div>
             <div class="col-xs-4 detail-right">
+                <img src="img/product/product{{activeIndex}}.jpg" class="img-responsive"/><br/>
+                {{topics[activeIndex].n}}
+                <p>
+
+                <div class="alert-info">
+                    21-25 ตค. 58
+                </div>
+                <div class="alert-success">
+                    {{topics[activeIndex].v}} แก้ว
+                </div>
+                </p>
+
 
             </div>
             <div class="clearfix"></div>
@@ -135,10 +170,15 @@
     </div>
 
 
-    <div class="container-fluid" ng-show="page=='inbox'" onclick="$('#myNavmenu').offcanvas('hide')">
+    <div class="container-fluid" style="height:500px" ng-show="page=='inbox'"
+         onclick="$('#myNavmenu').offcanvas('hide')">
     </div>
 
     <div class="container-fluid" ng-show="page=='qr'" onclick="$('#myNavmenu').offcanvas('hide')">
+        <div class="camera">
+            <img src="img/qr.jpg">
+        </div>
+        <div class="crop"></div>
     </div>
 
 
@@ -177,6 +217,7 @@
 <script src="js/raphael-min.js"></script>
 <script src="js/morris.js/morris.min.js"></script>
 <script src="js/circles.min.js"></script>
+<script src="js/chartist.min.js"></script>
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="camera.js"></script>

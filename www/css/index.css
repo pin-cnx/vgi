@@ -228,6 +228,7 @@ padding-top: 5px;}
     width: 100%;
     display: block;
     height: 12px;
+    z-index: 1040;
 }
 
 .foot-inbox {
@@ -277,7 +278,33 @@ padding-top: 5px;}
 .detail-right {
     background-color: #133453;
     height: 200px;
+    padding: 5px;
+    color:#FFF;
+    text-align:center;
+    line-height:1;
 }
+.detail-right p{
+    margin:6px 0 0 4px;
+}
+.detail-right .alert-info{
+    background-color:#FFF;
+    width:80%;
+    margin:auto;
+    margin-bottom:4px;
+    padding:4px 0;
+    border-radius: 4px;
+    color:#000
+}
+.detail-right .alert-success{
+    background-color: #066FA0;
+    width:80%;
+    margin:auto;
+    margin-bottom:4px;
+    padding:4px 0;
+    border-radius: 4px;
+    color: #FFF;
+}
+
 
 .detail-left {
     background-color: #FFFFFF;
@@ -286,7 +313,7 @@ padding-top: 5px;}
 
 .detail {
     padding: 0 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .summary-left {
     color: #23415D;
@@ -325,4 +352,123 @@ padding-top: 5px;}
 .circles-text span{
     font-weight:bold;
     font-size:12px !important; 
+}
+.graph div{
+    overflow:scroll;
+}
+
+
+.ct-point {
+    stroke: #066FA0;
+    stroke-width:8px;
+    /*stroke-dasharray: 10px 20px;*/
+}
+.ct-line {
+    stroke-width: 1px;
+}
+#graph-view .ct-series-a .ct-point {
+    stroke: #4462A2;
+}
+#graph-view .ct-series-a .ct-line {
+    stroke: #4462A2;
+}
+
+#graph-click .ct-series-a .ct-point {
+    stroke: #1AB2E8;
+}
+#graph-click .ct-series-a .ct-line {
+    stroke: #1AB2E8;
+}
+
+#graph-redeem .ct-series-a .ct-point {
+    stroke: #A48675;
+}
+#graph-redeem .ct-series-a .ct-line {
+    stroke: #A48675;
+}
+
+li.tab {
+    list-style: none;
+    height: 24px;
+    width: 24px;
+    background-image: url(../img/triangle-24.png);
+    padding: 0;
+    background-repeat: no-repeat;
+    display: block;
+    margin: auto;
+    margin-bottom: -5px;
+}
+.graph span.date{
+    position:absolute;
+    right:0;
+    top:0;
+    margin:3px
+
+}
+.topic{
+    border-top:solid #EEE 1px;
+    clear:both;
+    margin-left:-5px;
+    margin-right:-5px;
+}
+.topic:after{
+    content:' ';
+    display:table;
+}
+
+.topic.active{
+    background-color:#EFEFEF;
+    height:20px;
+}
+
+.k{
+    display:block;
+    height:20px;
+    width:30px;
+    text-align:right;
+    padding:2px 5px 0 0;
+    float:left;
+}
+.g{
+    margin-top:4px;
+    height:12px;
+    background-color:aliceblue;
+    float:left;
+}
+.active .g{
+    outline:solid 1px #CCC;
+    background-color: #86B0C3;
+}
+.v{
+    display:none;
+}
+.active .v{
+    display:block;
+    width:20px;
+    height:20px;
+    padding:3px 0 0 4px;
+    float:left;
+}
+
+.tri{
+    background-image:url(../img/triangle-24-l.png);
+    background-size:cover;
+    display:none;
+    width:20px;
+    height:20px;
+    float:right;
+    margin:0 -8px 0 0;
+}
+.active .tri{
+    display:block;
+}
+.crop{
+    background-image:url(../img/crop.png);
+    width: 500px;
+    height: 600px;
+    display:block;
+    position: fixed;
+    top:0;
+    left:0;
+    /* z-index: 1040; */
 }
