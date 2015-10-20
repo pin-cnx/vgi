@@ -24,10 +24,10 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <icon src="icon.png" />
-    <feature name="debug-server" required="true">
-        <param name="domain" value="http://192.168.1.35:8080"/>
-        <param name="key" value="3ed6e640-75c1-11e5-940b-22000ba180de"/>
-    </feature>
+    <!--<feature name="debug-server" required="true">-->
+        <!--<param name="domain" value="http://192.168.1.35:8080"/>-->
+        <!--<param name="key" value="3ed6e640-75c1-11e5-940b-22000ba180de"/>-->
+    <!--</feature>-->
 
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
