@@ -186,6 +186,7 @@ var app = angular.module("myPageApp", [])
 
 
 $(function(){
+    //$("#myNavmenu").offcanvas({ autohide: false ,recalc:false})
     // Bind the swipeleftHandler callback function to the swipe event on div.box
     $( "body" ).on( "swipeleft", swipeLeftHandler );
     $( "body" ).on( "swiperight", swipeRightHandler );

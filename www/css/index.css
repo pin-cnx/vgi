@@ -171,6 +171,7 @@ nav#myNavmenu {
     background-color: #255792;
     color: white;
     border-color: #E7E7E7;
+    z-index:1050;
 }
 
 .navmenu-default .navmenu-brand, .navbar-default .navbar-offcanvas .navmenu-brand {
