@@ -16,6 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value
+
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -27,8 +32,8 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.getElementById('scan').addEventListener('click', this.scan, false);
-        document.getElementById('encode').addEventListener('click', this.encode, false);
+        //document.getElementById('scan').addEventListener('click', this.scan, false);
+       // document.getElementById('encode').addEventListener('click', this.encode, false);
     },
     // deviceready Event Handler
     //
@@ -36,6 +41,8 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
