@@ -74,7 +74,24 @@
             <div class="box-top box-redeem">87<br/>REDEEMs</div>
         </div>
     </div>
+
+    <button onclick="capturePhoto();">Capture Photo</button> <br>
+    <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
+    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    <img style="display:none;" id="largeImage" src="" />
+
+
+
 </div>
+
+
+
+
+
+
+
 <div class="footer container-fluid">
     <div class="row">
         <div class="col-xs-6 foot-inbox">

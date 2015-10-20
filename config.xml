@@ -22,6 +22,9 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <feature name="Camera">
+            <param name="ios-package" value="CDVCamera" />
+        </feature>
     </platform>
     <icon src="icon.png" />
     <!--<feature name="debug-server" required="true">-->
