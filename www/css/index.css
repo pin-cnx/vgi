@@ -471,4 +471,11 @@ li.tab {
     top:0;
     left:0;
     /* z-index: 1040; */
+    background-size: contain;
+}
+.page-inbox{
+    /*display: none;*/
+}
+.page-qr{
+    /*display: none;*/
 }

@@ -72,7 +72,7 @@
 <div class="clearfix"></div>
 
 <div class="main-content" style="width: 100%">
-    <div class="container-fluid" ng-show="page=='home'" onclick="$('#myNavmenu').offcanvas('hide')">
+    <div class="container-fluid page-home" ng-show="page=='home'" onclick="$('#myNavmenu').offcanvas('hide')">
         <div class="">
             <div class="col-xs-4">
                 <div class="box-top box-view" ng-click="graph='view'" onclick="viewCircle()">
@@ -170,11 +170,11 @@
     </div>
 
 
-    <div class="container-fluid" style="height:500px" ng-show="page=='inbox'"
+    <div class="container-fluid page-inbox" style="height:500px" ng-show="page=='inbox'"
          onclick="$('#myNavmenu').offcanvas('hide')">
     </div>
 
-    <div class="container-fluid" ng-show="page=='qr'" onclick="$('#myNavmenu').offcanvas('hide')">
+    <div class="container-fluid page-qr" ng-show="page=='qr'" onclick="$('#myNavmenu').offcanvas('hide')">
         <div class="camera">
             <img src="img/qr.jpg">
         </div>

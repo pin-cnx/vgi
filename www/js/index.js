@@ -273,10 +273,13 @@ var redeemCircle = function () {
 };
 
 $(function () {
+    var bodyWidth = $('body').width();
+    $('.crop').width(bodyWidth);
+    $('.crop').height(bodyWidth*2);
     //$("#myNavmenu").offcanvas({ autohide: false ,recalc:false})
     // Bind the swipeleftHandler callback function to the swipe event on div.box
-    $("body").on("swipeleft", swipeLeftHandler);
-    $("body").on("swiperight", swipeRightHandler);
+    $(".page-home").on("swipeleft", swipeLeftHandler);
+    $(".page-home").on("swiperight", swipeRightHandler);
 
     $(".graph").on("swipeleft", function(){ });
     $(".graph").on("swiperight", function(){ });

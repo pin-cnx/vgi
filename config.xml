@@ -59,7 +59,7 @@
     'preferExternal' is SDCard. -->
     <preference name="webviewbounce"    value="false" />
 
-    <gap:splash src="www/img/splash.png" gap:platform="ios" width="375" height="627" />
+    <gap:splash src="splash.png" gap:platform="ios" width="375" height="627" />
 
     <!-- Core plugins -->
     <!--<gap:plugin name="org.apache.cordova.battery-status" />-->
