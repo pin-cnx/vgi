@@ -22,10 +22,14 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <feature name="Camera">
-            <param name="ios-package" value="CDVCamera" />
-        </feature>
+
     </platform>
+
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/camera"/>
     <icon src="icon.png" />
 
 
