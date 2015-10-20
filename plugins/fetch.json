@@ -7,10 +7,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "org.apache.cordova.camera": {
+    "cordova-plugin-camera": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.camera"
+            "id": "cordova-plugin-camera"
         },
         "is_top_level": true,
         "variables": {}
