@@ -21,7 +21,7 @@ var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 
 
-var app = {
+var appCordova = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -174,4 +174,12 @@ function onFail(message) {
 }
 
 
-app.initialize();
+appCordova.initialize();
+
+
+
+var app = angular.module("myPageApp", [])
+    .controller("myPageCtrl", function($scope) {
+        $scope.page='home';
+    });
+

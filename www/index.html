@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html ng-app>
+<html ng-app="myPageApp">
 <head>
     <!--
     Customize this policy to fit your own app's needs. For more guidance, see:
@@ -43,14 +43,14 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
 </head>
-<body>
+<body ng-controller="myPageCtrl">
 <div class="head-gap"></div>
 <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
     <a class="navmenu-brand" href="#">Brand</a>
     <ul class="nav navmenu-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li ng-class="{'active':page=='home'}"><a href="#" ng-click="page='home';" onclick="$('#myNavmenu').offcanvas('hide')">Home</a></li>
+        <li ng-class="{'active':page=='inbox'}"><a href="#" ng-click="page='inbox'" onclick="$('#myNavmenu').offcanvas('hide')">Inbox</a></li>
+        <li ng-class="{'active':page=='qr'}"><a href="#" ng-click="page='qr'" onclick="$('#myNavmenu').offcanvas('hide')">QR Scan</a></li>
     </ul>
 </nav>
 <div class="navbar navbar-default navbar-fixed-top">
@@ -63,7 +63,9 @@
     <span class="head-text">MR.Shake</span>
 </div>
 <div class="clearfix"></div>
-<div class="container-fluid">
+
+
+<div class="container-fluid" ng-show="page=='home'">
     <div class="">
         <div class="col-xs-4">
             <div class="box-top box-view">15,145<br/>VIEWs</div>
@@ -102,10 +104,10 @@
     </div>
 
     <div class="summary">
-        <div class="col-xs-5 summary-left">
+        <div class="col-xs-6 summary-left">
             รวมค่าใช้จ่ายทั้งหมด
         </div>
-        <div class="col-xs-3 summary-right">
+        <div class="col-xs-4 summary-right">
 20,456
         </div>
         <div class="clearfix"></div>
@@ -130,11 +132,11 @@
 
 <div class="footer container-fluid">
     <div class="row">
-        <div class="col-xs-6 foot-inbox">
+        <div class="col-xs-6 foot-inbox" ng-click="page='inbox'">
            MR.Shake<br/>
             <span>2 NEWS UPDATE</span>
         </div>
-        <div id="scan" class="col-xs-6 foot-qr">
+        <div id="scan" class="col-xs-6 foot-qr" ng-click="page='qr'">
           SCAN QR CODE
         </div>
     </div>

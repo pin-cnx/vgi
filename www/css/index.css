@@ -295,3 +295,11 @@ nav#myNavmenu {
 .summary {
     padding: 0 5px;
 }
+
+.graph{
+    background-color: #FFF;
+    height:100px;
+}
+.navmenu-default .navmenu-brand:hover {
+    color: #FFF;
+}
