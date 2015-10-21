@@ -39,16 +39,19 @@
 
     <!-- Core plugins -->
     <!--<gap:plugin name="org.apache.cordova.battery-status" />-->
-    <gap:plugin name="org.apache.cordova.camera" />
-
+    <gap:plugin name="org.apache.cordova.camera" version="0.2.3" />
+    <gap:plugin name="org.apache.cordova.core.geolocation" />
+    <gap:plugin name="org.apache.cordova.core.dialogs" />
+    
     <feature name="Camera">
         <param name="ios-package" value="CDVCamera" />
     </feature>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
     <feature name="http://api.phonegap.com/1.0/file"/>
     <feature name="http://api.phonegap.com/1.0/camera"/>
     <icon src="icon.png" />
 
-
+    <preference name="phonegap-version" value="3.0.0" />
 
     <!--
     If you do not want any permissions to be added to your app, add the
