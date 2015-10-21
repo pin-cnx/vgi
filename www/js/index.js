@@ -244,6 +244,12 @@ var app = angular.module("myPageApp", [])
                         height: bodyHeight
                     }, "back", tapEnabled, dragEnabled, toBack);
 
+                    setTimeout(function () {
+                        $('#myNavmenu').offcanvas('show')
+                    },100);
+                    setTimeout(function () {
+                        $('#myNavmenu').offcanvas('hide')
+                    },200);
                     //$('.crop').hide();
                     //$('.crop').show();
 
