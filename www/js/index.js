@@ -307,12 +307,12 @@ var redeemCircle = function () {
 var bodyWidth;
 var bodyHeight;
 $(function () {
-    bodyWidth = $('body').width();
-    bodyHeight = $('body').height();
+    bodyWidth = $(window).width();
+    bodyHeight = $(window).height();
     $('.crop').width(bodyWidth);
     $('.crop').height(bodyWidth * 2);
 
-    $('.crop').css('top', (-1*(bodyWidth * 2 - bodyHeight) / 4));
+    $('.crop').css('top', (-1*(bodyWidth * 2 - bodyHeight) / 4)-20);
     //$("#myNavmenu").offcanvas({ autohide: false ,recalc:false})
     // Bind the swipeleftHandler callback function to the swipe event on div.box
     $(".page-home").on("swipeleft", swipeLeftHandler);
