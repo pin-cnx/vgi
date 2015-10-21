@@ -242,6 +242,10 @@ var app = angular.module("myPageApp", [])
                             width: bodyWidth,
                             height: bodyHeight
                         }, "back", tapEnabled, dragEnabled, toBack);
+
+                        $('.crop').hide();
+                        $('.crop').show();
+
                     }, 100);
                 }
             }
