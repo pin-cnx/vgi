@@ -17,8 +17,7 @@
  * under the License.
  */
 
-var pictureSource;   // picture source
-var destinationType; // sets the format of returned value
+
 
 
 var appCordova = {
@@ -32,6 +31,9 @@ var appCordova = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+
+        document.getElementById('startCameraButton').addEventListener('mousedown', this.onStartCamera, false);
+
         //document.getElementById('scan').addEventListener('click', this.scan, false);
         // document.getElementById('encode').addEventListener('click', this.encode, false);
     },
@@ -42,11 +44,22 @@ var appCordova = {
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
 
-        console.log(navigator.camera);
+        cordova.plugins.camerapreview.setOnPictureTakenHandler(function(result){
+            document.getElementById('originalPicture').src = result[0];//originalPicturePath;
+            document.getElementById('previewPicture').src = result[1];//previewPicturePath;
+        });
 
-        pictureSource = navigator.camera.PictureSourceType;
-        destinationType = navigator.camera.DestinationType;
+        //destinationType = navigator.camera.DestinationType;
     },
+
+
+    onStartCamera: function() {
+        var tapEnabled = true;
+        var dragEnabled = true;
+        var toBack = true;
+        cordova.plugins.camerapreview.startCamera({x: 0, y: 50, width: 300, height:300}, "front", tapEnabled, dragEnabled, toBack);
+    },
+
     // Update DOM on a Received Event
     receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
@@ -149,7 +162,7 @@ function capturePhoto() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 50,
-        destinationType: destinationType.DATA_URL
+        destinationType: navigator.camera.DestinationType.DATA_URL
     });
 }
 
@@ -159,7 +172,7 @@ function capturePhotoEdit() {
     // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 20, allowEdit: true,
-        destinationType: destinationType.DATA_URL
+        destinationType: navigator.camera.DestinationType.DATA_URL
     });
 }
 
@@ -169,7 +182,7 @@ function getPhoto(source) {
     // Retrieve image file location from specified source
     navigator.camera.getPicture(onPhotoURISuccess, onFail, {
         quality: 50,
-        destinationType: destinationType.FILE_URI,
+        destinationType: navigator.camera.DestinationType.FILE_URI,
         sourceType: source
     });
 }

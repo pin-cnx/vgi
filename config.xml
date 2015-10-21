@@ -30,7 +30,7 @@
     <gap:plugin name="org.apache.cordova.camera" source="pgb" version="0.3.2" />
     <gap:plugin name="org.apache.cordova.core.geolocation" />
     <gap:plugin name="org.apache.cordova.core.dialogs" />
-
+    <gap:plugin name="com.mbppower.camerapreview" version="0.0.8" source="plugins.cordova.io" />
 
 
     <content src="index.html" />
