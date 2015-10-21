@@ -204,6 +204,10 @@ var app = angular.module("myPageApp", [])
             $scope.activeIndex = index;
         }
 
+        setTimeout(function() {
+            navigator.splashscreen.hide();
+        }, 100);
+
     });
 
 
