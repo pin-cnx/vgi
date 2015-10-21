@@ -32,7 +32,7 @@ var appCordova = {
     bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
 
-        document.getElementById('startCameraButton').addEventListener('mousedown', this.onStartCamera, false);
+
 
         //document.getElementById('scan').addEventListener('click', this.scan, false);
         // document.getElementById('encode').addEventListener('click', this.encode, false);
@@ -44,21 +44,10 @@ var appCordova = {
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
 
-        cordova.plugins.camerapreview.setOnPictureTakenHandler(function(result){
-            document.getElementById('originalPicture').src = result[0];//originalPicturePath;
-            document.getElementById('previewPicture').src = result[1];//previewPicturePath;
-        });
-
         //destinationType = navigator.camera.DestinationType;
     },
 
 
-    onStartCamera: function() {
-        var tapEnabled = true;
-        var dragEnabled = true;
-        var toBack = true;
-        cordova.plugins.camerapreview.startCamera({x: 0, y: 50, width: 300, height:300}, "front", tapEnabled, dragEnabled, toBack);
-    },
 
     // Update DOM on a Received Event
     receivedEvent: function (id) {
@@ -221,6 +210,23 @@ var app = angular.module("myPageApp", [])
             navigator.splashscreen.hide();
         }, 100);
 
+
+        scope.$watch('page', function(newValue, oldValue) {
+            if(oldValue=='qr'){
+                $('body').removeClass('cam');
+                $('body').addClass('normal');
+                cordova.plugins.camerapreview.stopCamera();
+            }
+            if(newValue=='qr'){
+                $('body').removeClass('normal');
+                $('body').addClass('cam');
+                var tapEnabled = true;
+                var dragEnabled = true;
+                var toBack = true;
+                cordova.plugins.camerapreview.startCamera({x: 0, y: 0, width: $(window).width(), height:$(window).height()}, "back", tapEnabled, dragEnabled, toBack);
+
+            }
+        });
     });
 
 
