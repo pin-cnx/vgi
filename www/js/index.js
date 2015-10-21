@@ -223,6 +223,7 @@ var app = angular.module("myPageApp", [])
                 var dragEnabled = true;
                 var toBack = true;
                 if (typeof cordova !== 'undefined') {
+                    cordova.plugins.camerapreview.stopCamera();
                     cordova.plugins.camerapreview.startCamera({
                         x: 0,
                         y: 0,
@@ -305,8 +306,11 @@ var redeemCircle = function () {
 
 $(function () {
     var bodyWidth = $('body').width();
+    var bodyHeight = $('body').height();
     $('.crop').width(bodyWidth);
     $('.crop').height(bodyWidth * 2);
+
+    $('.crop').css('top', (-1*(bodyWidth * 2 - bodyHeight) / 4));
     //$("#myNavmenu").offcanvas({ autohide: false ,recalc:false})
     // Bind the swipeleftHandler callback function to the swipe event on div.box
     $(".page-home").on("swipeleft", swipeLeftHandler);
