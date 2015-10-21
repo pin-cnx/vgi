@@ -222,31 +222,33 @@ var app = angular.module("myPageApp", [])
                 $('body').removeClass('cam');
                 $('body').addClass('normal');
                 if (typeof cordova !== 'undefined') {
-                    setTimeout(function () {
-                        cordova.plugins.camerapreview.stopCamera();
-                    }, 100);
+                    //setTimeout(function () {
+                  cordova.plugins.camerapreview.stopCamera();
+                   // }, 100);
                 }
             }
             if (newValue == 'qr') {
-                $('body').removeClass('normal');
-                $('body').addClass('cam');
+
                 var tapEnabled = true;
                 var dragEnabled = true;
                 var toBack = true;
                 if (typeof cordova !== 'undefined') {
                     //cordova.plugins.camerapreview.stopCamera();
-                    setTimeout(function () {
-                        cordova.plugins.camerapreview.startCamera({
-                            x: 0,
-                            y: 0,
-                            width: bodyWidth,
-                            height: bodyHeight
-                        }, "back", tapEnabled, dragEnabled, toBack);
+                    //setTimeout(function () {
+                    cordova.plugins.camerapreview.startCamera({
+                        x: 0,
+                        y: 0,
+                        width: bodyWidth,
+                        height: bodyHeight
+                    }, "back", tapEnabled, dragEnabled, toBack);
 
-                        $('.crop').hide();
-                        $('.crop').show();
+                    $('.crop').hide();
+                    $('.crop').show();
 
-                    }, 100);
+                    $('body').removeClass('normal');
+                    $('body').addClass('cam');
+
+                    //}, 100);
                 }
             }
         });
