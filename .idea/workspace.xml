@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="194cff45-4f91-4c44-b8e9-5a7486863aa1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="C:\Users\pppstudio\Documents\MobileProjects\vgi\Default-568h2x.png" afterPath="$PROJECT_DIR$/www/Default-568h2x.png" />
+      <change type="MOVED" beforePath="C:\Users\pppstudio\Documents\MobileProjects\vgi\Default-667h2x.png" afterPath="$PROJECT_DIR$/www/Default-667h2x.png" />
+      <change type="MOVED" beforePath="C:\Users\pppstudio\Documents\MobileProjects\vgi\Default-Landscape-736h3x.png" afterPath="$PROJECT_DIR$/www/Default-Landscape-736h3x.png" />
+      <change type="MOVED" beforePath="C:\Users\pppstudio\Documents\MobileProjects\vgi\Default-Portrait-736h3x.png" afterPath="$PROJECT_DIR$/www/Default-Portrait-736h3x.png" />
+      <change type="MOVED" beforePath="C:\Users\pppstudio\Documents\MobileProjects\vgi\splash.png" afterPath="$PROJECT_DIR$/www/splash.png" />
     </list>
     <ignored path="vgi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +30,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="124" column="106" selection-start-line="124" selection-start-column="106" selection-end-line="124" selection-end-column="106" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -42,16 +45,9 @@
         <entry file="file://$PROJECT_DIR$/www/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="469" column="18" selection-start-line="469" selection-start-column="18" selection-end-line="469" selection-end-column="18" />
+              <caret line="454" column="26" selection-start-line="454" selection-start-column="26" selection-end-line="454" selection-end-column="26" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="splash.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/splash.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -80,8 +76,8 @@
       <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5179543">
-              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.2774755">
+              <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -174,6 +170,7 @@
       <recent name="C:\Users\pppstudio\Documents\MobileProjects\vgi" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pppstudio\Documents\MobileProjects\vgi\www" />
       <recent name="C:\Users\pppstudio\Documents\MobileProjects\vgi" />
     </key>
   </component>
@@ -301,7 +298,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/splash.png">
+    <entry file="file://$PROJECT_DIR$/www/splash.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -352,7 +349,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/splash.png">
+    <entry file="file://$PROJECT_DIR$/www/splash.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -474,19 +471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="469" column="18" selection-start-line="469" selection-start-column="18" selection-end-line="469" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/splash.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -509,10 +493,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/splash.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="454" column="26" selection-start-line="454" selection-start-column="26" selection-end-line="454" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5179543">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.2774755">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
           <folding />
         </state>
       </provider>
