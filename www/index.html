@@ -175,10 +175,18 @@
     </div>
 
     <div class="container-fluid page-qr" ng-show="page=='qr'" onclick="$('#myNavmenu').offcanvas('hide')">
-        <div class="camera">
-            <img src="img/qr.jpg">
-        </div>
-        <div class="crop"></div>
+
+        <button onclick="capturePhoto();">Capture Photo</button> <br>
+        <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
+        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+        <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+        <img style="display:none;" id="largeImage" src="" />
+
+        <!--<div class="camera">-->
+            <!--<img src="img/qr.jpg">-->
+        <!--</div>-->
+        <!--<div class="crop"></div>-->
     </div>
 
 
