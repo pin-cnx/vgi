@@ -207,7 +207,8 @@ var app = angular.module("myPageApp", [])
         }
 
         setTimeout(function() {
-            navigator.splashscreen.hide();
+            if(navigator.splashscreen)
+                navigator.splashscreen.hide();
         }, 100);
 
 
@@ -215,7 +216,7 @@ var app = angular.module("myPageApp", [])
             if(oldValue=='qr'){
                 $('body').removeClass('cam');
                 $('body').addClass('normal');
-                cordova.plugins.camerapreview.stopCamera();
+                //cordova.plugins.camerapreview.stopCamera();
             }
             if(newValue=='qr'){
                 $('body').removeClass('normal');
@@ -223,7 +224,7 @@ var app = angular.module("myPageApp", [])
                 var tapEnabled = true;
                 var dragEnabled = true;
                 var toBack = true;
-                cordova.plugins.camerapreview.startCamera({x: 0, y: 0, width: $(window).width(), height:$(window).height()}, "back", tapEnabled, dragEnabled, toBack);
+                //cordova.plugins.camerapreview.startCamera({x: 0, y: 0, width: $(window).width(), height:$(window).height()}, "back", tapEnabled, dragEnabled, toBack);
 
             }
         });
