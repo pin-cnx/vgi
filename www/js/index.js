@@ -18,8 +18,6 @@
  */
 
 
-
-
 var appCordova = {
     // Application Constructor
     initialize: function () {
@@ -31,7 +29,6 @@ var appCordova = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-
 
 
         //document.getElementById('scan').addEventListener('click', this.scan, false);
@@ -46,7 +43,6 @@ var appCordova = {
 
         //destinationType = navigator.camera.DestinationType;
     },
-
 
 
     // Update DOM on a Received Event
@@ -191,41 +187,49 @@ var app = angular.module("myPageApp", [])
         $scope.page = 'home';
         $scope.graph = 'view';
         $scope.topics = [
-            {k:'A',v:20,n:'ชานมน้ำผึ้ง+ไข่มุก'},
-            {k:'M1',v:45,n:'น้ำส้ม'},
-            {k:'J2',v:10,n:'Blue drill'},
-            {k:'O',v:58,n:'โซดา'},
-            {k:'N',v:94,n:'โซดา'},
-            {k:'D',v:71,n:'กาแฟ'},
-            {k:'F',v:66,n:'ขนมขบเคี้ยว'},
+            {k: 'A', v: 20, n: 'ชานมน้ำผึ้ง+ไข่มุก'},
+            {k: 'M1', v: 45, n: 'น้ำส้ม'},
+            {k: 'J2', v: 10, n: 'Blue drill'},
+            {k: 'O', v: 58, n: 'โซดา'},
+            {k: 'N', v: 94, n: 'โซดา'},
+            {k: 'D', v: 71, n: 'กาแฟ'},
+            {k: 'F', v: 66, n: 'ขนมขบเคี้ยว'},
 
 
         ];
         $scope.activeIndex = 0;
-        $scope.setTopic = function(index){
+        $scope.setTopic = function (index) {
             $scope.activeIndex = index;
         }
 
-        setTimeout(function() {
-            if(navigator.splashscreen)
+        setTimeout(function () {
+            if (navigator.splashscreen)
                 navigator.splashscreen.hide();
         }, 100);
 
 
-        $scope.$watch('page', function(newValue, oldValue) {
-            if(oldValue=='qr'){
+        $scope.$watch('page', function (newValue, oldValue) {
+            if (oldValue == 'qr') {
                 $('body').removeClass('cam');
                 $('body').addClass('normal');
-                cordova.plugins.camerapreview.stopCamera();
+                if (typeof cordova !== 'undefined') {
+                    cordova.plugins.camerapreview.stopCamera();
+                }
             }
-            if(newValue=='qr'){
+            if (newValue == 'qr') {
                 $('body').removeClass('normal');
                 $('body').addClass('cam');
                 var tapEnabled = true;
                 var dragEnabled = true;
                 var toBack = true;
-                cordova.plugins.camerapreview.startCamera({x: 0, y: 0, width: $(window).width(), height:$(window).height()}, "back", tapEnabled, dragEnabled, toBack);
-
+                if (typeof cordova !== 'undefined') {
+                    cordova.plugins.camerapreview.startCamera({
+                        x: 0,
+                        y: 0,
+                        width: $(window).width(),
+                        height: $(window).height()
+                    }, "back", tapEnabled, dragEnabled, toBack);
+                }
             }
         });
     });
@@ -302,14 +306,16 @@ var redeemCircle = function () {
 $(function () {
     var bodyWidth = $('body').width();
     $('.crop').width(bodyWidth);
-    $('.crop').height(bodyWidth*2);
+    $('.crop').height(bodyWidth * 2);
     //$("#myNavmenu").offcanvas({ autohide: false ,recalc:false})
     // Bind the swipeleftHandler callback function to the swipe event on div.box
     $(".page-home").on("swipeleft", swipeLeftHandler);
     $(".page-home").on("swiperight", swipeRightHandler);
 
-    $(".graph").on("swipeleft", function(){ });
-    $(".graph").on("swiperight", function(){ });
+    $(".graph").on("swipeleft", function () {
+    });
+    $(".graph").on("swiperight", function () {
+    });
     // Callback function references the event target and adds the 'swipeleft' class to it
     function swipeLeftHandler(event) {
         $('#myNavmenu').offcanvas('hide')
@@ -347,7 +353,7 @@ $(function () {
     //    ]
     //});
     new Chartist.Line('#graph-view', {
-        labels: [ 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22],
+        labels: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
         series: [
             [556, 588, 1010, 886, 742, 588, 444, null, null, null, 1220, 1440, 788, 834, 665, 914],
         ]
@@ -362,7 +368,7 @@ $(function () {
     });
 
     new Chartist.Line('#graph-click', {
-        labels: [ 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22],
+        labels: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
         series: [
             [10, 15, null, 12, null, 10, 12, 15, null, null, 12, null, 14, null, null, null],
         ]
@@ -377,7 +383,7 @@ $(function () {
     });
 
     new Chartist.Line('#graph-redeem', {
-        labels: [ 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22],
+        labels: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
         series: [
             [null, null, null, null, 3, 4, 1, 3, 4, 6, 7, 9, 5, null, null, null]
         ]
@@ -390,7 +396,6 @@ $(function () {
         width: '500px',
         height: '100px'
     });
-
 
 
     viewCircle();
