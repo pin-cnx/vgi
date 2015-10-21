@@ -223,12 +223,12 @@ var app = angular.module("myPageApp", [])
                 var dragEnabled = true;
                 var toBack = true;
                 if (typeof cordova !== 'undefined') {
-                    cordova.plugins.camerapreview.stopCamera();
+                    //cordova.plugins.camerapreview.stopCamera();
                     cordova.plugins.camerapreview.startCamera({
                         x: 0,
                         y: 0,
-                        width: $(window).width(),
-                        height: $(window).height()
+                        width: bodyWidth,
+                        height: bodyHeight
                     }, "back", tapEnabled, dragEnabled, toBack);
                 }
             }
@@ -304,9 +304,11 @@ var redeemCircle = function () {
     });
 };
 
+var bodyWidth;
+var bodyHeight;
 $(function () {
-    var bodyWidth = $('body').width();
-    var bodyHeight = $('body').height();
+    bodyWidth = $('body').width();
+    bodyHeight = $('body').height();
     $('.crop').width(bodyWidth);
     $('.crop').height(bodyWidth * 2);
 
