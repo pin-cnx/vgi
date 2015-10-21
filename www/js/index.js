@@ -236,7 +236,8 @@ var app = angular.module("myPageApp", [])
                     //cordova.plugins.camerapreview.stopCamera();
                     //setTimeout(function () {
                     //$('body').removeClass('normal');
-
+                    $('.crop').hide();
+                    
                     cordova.plugins.camerapreview.startCamera({
                         x: 0,
                         y: 0,
@@ -244,20 +245,27 @@ var app = angular.module("myPageApp", [])
                         height: bodyHeight
                     }, "back", tapEnabled, dragEnabled, toBack);
 
-                    setTimeout(function () {
-                        $('#myNavmenu').offcanvas('show')
-                    },100);
-                    setTimeout(function () {
-                        $('#myNavmenu').offcanvas('hide')
-                    },200);
-                    //$('.crop').hide();
-                    //$('.crop').show();
 
+
+
+                    setTimeout(function () {
+                        $('.crop').show();
+                    },500);
 
                     //$('body').addClass('cam');
 
                     //}, 100);
                 }
+                //setTimeout(function () {
+                //    $('#myNavmenu').offcanvas('show')
+                //},100);
+                //setTimeout(function () {
+                //    $('#myNavmenu').removeClass('in')
+                //    $('#myNavmenu').stopAn
+                //    $('#myNavmenu').removeClass('canvas-slid')
+                //    $('#myNavmenu').removeClass('canvas-sliding')
+                //    $('#myNavmenu').offcanvas('hide');
+                //},300);
             }
         });
     });
