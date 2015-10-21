@@ -152,6 +152,7 @@ h1 {
 
 .navbar-fixed-top {
     top: 12px;
+    box-shadow: 0px 3px 5px grey;
 }
 
 nav#myNavmenu {
@@ -205,7 +206,9 @@ nav#myNavmenu {
 
     text-align: center;
     height: 80px;
-padding-top: 5px;}
+    padding-top: 5px;
+    box-shadow: 2px 2px 5px grey;
+}
 
 .head-gap {
     background-color: #143255;
@@ -268,6 +271,7 @@ padding-top: 5px;}
     color:#FFF;
     text-align:center;
     line-height:1;
+    box-shadow: 5px 5px 5px grey;
 }
 .detail-right p{
     margin:6px 0 0 4px;
@@ -295,6 +299,7 @@ padding-top: 5px;}
 .detail-left {
     background-color: #FFFFFF;
     height: 200px;
+    box-shadow: 2px 2px 5px grey;
 }
 
 .detail {
@@ -308,6 +313,7 @@ padding-top: 5px;}
     text-align: center;
     padding: 10px 0 0;
     height: 40px;
+    box-shadow: 2px 2px 5px grey;
 }
 
 .summary-right {
@@ -318,26 +324,29 @@ padding-top: 5px;}
     height: 40px;
     padding: 5px 0 0;
     text-align: center;
+    box-shadow: 2px 2px 5px grey;
 }
 .summary {
     padding: 0 5px;
+
 }
 
 .graph{
     background-color: #FFF;
     height:100px;
+    box-shadow: 2px 2px 5px grey;
 }
 .navmenu-default .navmenu-brand:hover {
     color: #FFF;
 }
 .circles-text{
- font-size:14px !important;   
- line-height:1 !important;
- margin-top:20px;
+    font-size:14px !important;
+    line-height:1 !important;
+    margin-top:20px;
 }
 .circles-text span{
     font-weight:bold;
-    font-size:12px !important; 
+    font-size:12px !important;
 }
 .graph div{
     overflow:scroll;

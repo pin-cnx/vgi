@@ -222,7 +222,9 @@ var app = angular.module("myPageApp", [])
                 $('body').removeClass('cam');
                 $('body').addClass('normal');
                 if (typeof cordova !== 'undefined') {
-                    cordova.plugins.camerapreview.stopCamera();
+                    setTimeout(function () {
+                        cordova.plugins.camerapreview.stopCamera();
+                    }, 100);
                 }
             }
             if (newValue == 'qr') {
@@ -233,12 +235,14 @@ var app = angular.module("myPageApp", [])
                 var toBack = true;
                 if (typeof cordova !== 'undefined') {
                     //cordova.plugins.camerapreview.stopCamera();
-                    cordova.plugins.camerapreview.startCamera({
-                        x: 0,
-                        y: 0,
-                        width: bodyWidth,
-                        height: bodyHeight
-                    }, "back", tapEnabled, dragEnabled, toBack);
+                    setTimeout(function () {
+                        cordova.plugins.camerapreview.startCamera({
+                            x: 0,
+                            y: 0,
+                            width: bodyWidth,
+                            height: bodyHeight
+                        }, "back", tapEnabled, dragEnabled, toBack);
+                    }, 100);
                 }
             }
         });
@@ -321,7 +325,7 @@ $(function () {
     $('.crop').width(bodyWidth);
     $('.crop').height(bodyWidth * 2);
 
-    $('.crop').css('top', (-1*(bodyWidth * 2 - bodyHeight) / 4)-20);
+    $('.crop').css('top', (-1 * (bodyWidth * 2 - bodyHeight) / 4) - 20);
     //$("#myNavmenu").offcanvas({ autohide: false ,recalc:false})
     // Bind the swipeleftHandler callback function to the swipe event on div.box
     $(".page-home").on("swipeleft", swipeLeftHandler);
