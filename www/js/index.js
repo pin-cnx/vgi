@@ -382,7 +382,7 @@ $(function () {
             right: 10
         },
         low: 0,
-        width: '500px',
+        width: '1000px',
         height: '100px'
     });
 
@@ -397,7 +397,7 @@ $(function () {
             right: 10
         },
         low: 0,
-        width: '500px',
+        width: '1000px',
         height: '100px'
     });
 
@@ -412,7 +412,7 @@ $(function () {
             right: 10
         },
         low: 0,
-        width: '500px',
+        width: '1000px',
         height: '100px'
     });
 

@@ -47,163 +47,164 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
-<body ng-controller="myPageCtrl" class="normal">
-<div class="head-gap"></div>
-<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
-    <a class="navmenu-brand" href="#">Brand</a>
-    <ul class="nav navmenu-nav">
-        <li ng-class="{'active':page=='home'}"><a href="#" ng-click="page='home';"
-                                                  onclick="$('#myNavmenu').offcanvas('hide')">Home</a></li>
-        <li ng-class="{'active':page=='inbox'}"><a href="#" ng-click="page='inbox'"
-                                                   onclick="$('#myNavmenu').offcanvas('hide')">Inbox</a></li>
-        <li ng-class="{'active':page=='qr'}"><a href="#" ng-click="page='qr'"
-                                                onclick="$('#myNavmenu').offcanvas('hide')">QR Scan</a></li>
-    </ul>
-</nav>
-<div class="navbar navbar-default navbar-fixed-top">
-    <button type="button" class="navbar-toggle pull-left" data-toggle="offcanvas" data-target="#myNavmenu"
-            data-canvas="body">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-    <span class="head-text">MR.Shake</span>
-</div>
-<div class="clearfix"></div>
-
-<div class="main-content" style="width: 100%">
-    <div class="container-fluid page-home" ng-show="page=='home'" onclick="$('#myNavmenu').offcanvas('hide')">
-        <div class="">
-            <div class="col-xs-4">
-                <div class="box-top box-view" ng-click="graph='view'" onclick="viewCircle()">
-                    <div id="box-view"></div>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <div class="box-top box-click" ng-click="graph='click'" onclick="clickCircle()">
-                    <div id="box-click"></div>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <div class="box-top box-redeem" ng-click="graph='redeem'" onclick="redeemCircle()">
-                    <div id="box-redeem"></div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="detail">
-            <div class="col-xs-4">
-                <li class="tab" ng-show="graph=='view'"></li>
-            </div>
-            <div class="col-xs-4">
-                <li class="tab" ng-show="graph=='click'"></li>
-            </div>
-            <div class="col-xs-4">
-                <li class="tab" ng-show="graph=='redeem'"></li>
-            </div>
-            <div class="col-xs-12 graph" ng-show="graph=='view'">
-
-                <div id="graph-view"></div>
-                <span class="date">21 ตุลาคม 2558</span>
-            </div>
-            <div class="col-xs-12 graph" ng-show="graph=='click'">
-
-                <div id="graph-click"></div>
-                <span class="date">21 ตุลาคม 2558</span>
-            </div>
-            <div class="col-xs-12 graph" ng-show="graph=='redeem'">
-
-                <div id="graph-redeem"></div>
-                <span class="date">21 ตุลาคม 2558</span>
-
-            </div>
-            <div class="clearfix"></div>
-        </div>
-
-        <div class="detail">
-            <div class="col-xs-8 detail-left">
-                <div ng-repeat="topic in topics track by $index" class="topic" ng-click="setTopic($index)"
-                     ng-class="{'active':activeIndex == $index}">
-                    <span class="k">{{topic.k}}</span>
-
-                    <div class="g" style="width: {{topic.v/100*60}}%"></div>
-                    <div class="v">{{topic.v}}</div>
-                    <div class="tri"></div>
-                </div>
-            </div>
-            <div class="col-xs-4 detail-right">
-                <img src="img/product/product{{activeIndex}}.jpg" class="img-responsive"/><br/>
-                {{topics[activeIndex].n}}
-                <p>
-
-                <div class="alert-info">
-                    21-25 ตค. 58
-                </div>
-                <div class="alert-success">
-                    {{topics[activeIndex].v}} แก้ว
-                </div>
-                </p>
-
-
-            </div>
-            <div class="clearfix"></div>
-        </div>
-
-        <div class="summary">
-            <div class="col-xs-6 summary-left">
-                รวมค่าใช้จ่ายทั้งหมด
-            </div>
-            <div class="col-xs-4 summary-right">
-                20,456
-            </div>
-            <div class="clearfix"></div>
-        </div>
-
-        <!--<button class="btn-default" onclick="capturePhoto();">Capture Photo</button> <br>-->
-        <!--<button class="btn-default"  onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>-->
-        <!--<button class="btn-default"  onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>-->
-        <!--<button class="btn-default"  onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>-->
-        <!--<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />-->
-        <!--<img style="display:none;" id="largeImage" src="" />-->
-
-
+<body class="normal">
+<section ng-controller="myPageCtrl">
+    <div class="head-gap"></div>
+    <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+        <a class="navmenu-brand" href="#">Brand</a>
+        <ul class="nav navmenu-nav">
+            <li ng-class="{'active':page=='home'}"><a href="#" ng-click="page='home';"
+                                                      onclick="$('#myNavmenu').offcanvas('hide')">Home</a></li>
+            <li ng-class="{'active':page=='inbox'}"><a href="#" ng-click="page='inbox'"
+                                                       onclick="$('#myNavmenu').offcanvas('hide')">Inbox</a></li>
+            <li ng-class="{'active':page=='qr'}"><a href="#" ng-click="page='qr'"
+                                                    onclick="$('#myNavmenu').offcanvas('hide')">QR Scan</a></li>
+        </ul>
+    </nav>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <button type="button" class="navbar-toggle pull-left" data-toggle="offcanvas" data-target="#myNavmenu"
+                data-canvas="body">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <span class="head-text">MR.Shake</span>
     </div>
+    <div class="clearfix"></div>
+
+    <div class="main-content" style="width: 100%">
+        <div class="container-fluid page-home" ng-show="page=='home'" onclick="$('#myNavmenu').offcanvas('hide')">
+            <div class="">
+                <div class="col-xs-4">
+                    <div class="box-top box-view" ng-click="graph='view'" onclick="viewCircle()">
+                        <div id="box-view"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="box-top box-click" ng-click="graph='click'" onclick="clickCircle()">
+                        <div id="box-click"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="box-top box-redeem" ng-click="graph='redeem'" onclick="redeemCircle()">
+                        <div id="box-redeem"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detail">
+                <div class="col-xs-4">
+                    <li class="tab" ng-show="graph=='view'"></li>
+                </div>
+                <div class="col-xs-4">
+                    <li class="tab" ng-show="graph=='click'"></li>
+                </div>
+                <div class="col-xs-4">
+                    <li class="tab" ng-show="graph=='redeem'"></li>
+                </div>
+                <div class="col-xs-12 graph" ng-show="graph=='view'">
+
+                    <div id="graph-view"></div>
+                    <span class="date">21 ตุลาคม 2558</span>
+                </div>
+                <div class="col-xs-12 graph" ng-show="graph=='click'">
+
+                    <div id="graph-click"></div>
+                    <span class="date">21 ตุลาคม 2558</span>
+                </div>
+                <div class="col-xs-12 graph" ng-show="graph=='redeem'">
+
+                    <div id="graph-redeem"></div>
+                    <span class="date">21 ตุลาคม 2558</span>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detail">
+                <div class="col-xs-8 detail-left">
+                    <div ng-repeat="topic in topics track by $index" class="topic" ng-click="setTopic($index)"
+                         ng-class="{'active':activeIndex == $index}">
+                        <span class="k">{{topic.k}}</span>
+
+                        <div class="g" style="width: {{topic.v/100*60}}%"></div>
+                        <div class="v">{{topic.v}}</div>
+                        <div class="tri"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 detail-right">
+                    <img src="img/product/product{{activeIndex}}.jpg" class="img-responsive"/><br/>
+                    {{topics[activeIndex].n}}
+                    <p>
+
+                    <div class="alert-info">
+                        21-25 ตค. 58
+                    </div>
+                    <div class="alert-success">
+                        {{topics[activeIndex].v}} แก้ว
+                    </div>
+                    </p>
 
 
-    <div class="container-fluid page-inbox" style="height:500px" ng-show="page=='inbox'"
-         onclick="$('#myNavmenu').offcanvas('hide')">
-    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
 
-    <div class="container-fluid page-qr" ng-show="page=='qr'" onclick="$('#myNavmenu').offcanvas('hide')">
+            <div class="summary">
+                <div class="col-xs-6 summary-left">
+                    รวมค่าใช้จ่ายทั้งหมด
+                </div>
+                <div class="col-xs-4 summary-right">
+                    20,456
+                </div>
+                <div class="clearfix"></div>
+            </div>
 
-        <!--<button style="width:300px;height:50px;" onclick="capturePhoto();">Capture Photo</button> <br>-->
-        <!--<button style="width:300px;height:50px;"  onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>-->
-        <!--<button style="width:300px;height:50px;"  onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>-->
-        <!--<button style="width:300px;height:50px;"  onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>-->
-        <!--<button id="startCameraButton">xxxx</button>-->
-        <!--<img style="width:60px;height:60px;" id="originalPicture" src="" />-->
-        <!--<img style="width:60px;height:60px;" id="previewPicture" src="" />-->
+            <!--<button class="btn-default" onclick="capturePhoto();">Capture Photo</button> <br>-->
+            <!--<button class="btn-default"  onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>-->
+            <!--<button class="btn-default"  onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>-->
+            <!--<button class="btn-default"  onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>-->
+            <!--<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />-->
+            <!--<img style="display:none;" id="largeImage" src="" />-->
 
-        <!--<div class="camera">-->
+
+        </div>
+
+
+        <div class="container-fluid page-inbox" style="height:500px" ng-show="page=='inbox'"
+             onclick="$('#myNavmenu').offcanvas('hide')">
+        </div>
+
+        <div class="container-fluid page-qr" ng-show="page=='qr'" onclick="$('#myNavmenu').offcanvas('hide')">
+
+            <!--<button style="width:300px;height:50px;" onclick="capturePhoto();">Capture Photo</button> <br>-->
+            <!--<button style="width:300px;height:50px;"  onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>-->
+            <!--<button style="width:300px;height:50px;"  onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>-->
+            <!--<button style="width:300px;height:50px;"  onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>-->
+            <!--<button id="startCameraButton">xxxx</button>-->
+            <!--<img style="width:60px;height:60px;" id="originalPicture" src="" />-->
+            <!--<img style="width:60px;height:60px;" id="previewPicture" src="" />-->
+
+            <!--<div class="camera">-->
             <!--<img src="img/qr.jpg">-->
-        <!--</div>-->
-        <div class="crop"></div>
-    </div>
+            <!--</div>-->
+            <div class="crop"></div>
+        </div>
 
 
-    <div class="footer container-fluid">
-        <div class="row">
-            <div class="col-xs-6 foot-inbox" ng-click="page='inbox'">
-                MR.Shake<br/>
-                <span>2 NEWS UPDATE</span>
-            </div>
-            <div id="scan" class="col-xs-6 foot-qr" ng-click="page='qr'">
-                SCAN QR CODE
+        <div class="footer container-fluid">
+            <div class="row">
+                <div class="col-xs-6 foot-inbox" ng-click="page='inbox'">
+                    MR.Shake<br/>
+                    <span>2 NEWS UPDATE</span>
+                </div>
+                <div id="scan" class="col-xs-6 foot-qr" ng-click="page='qr'">
+                    SCAN QR CODE
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</section>
 <!--<div class="app">-->
 <!--<h1>Apache Cordova</h1>-->
 
