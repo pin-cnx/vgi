@@ -41,6 +41,15 @@ var appCordova = {
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
 
+        if (typeof cordova !== 'undefined') {
+            cordova.plugins.camerapreview.startCamera({
+                x: 0,
+                y: 0,
+                width: 1,
+                height: 1
+            }, "back", tapEnabled, dragEnabled, toBack);
+            cordova.plugins.camerapreview.stopCamera();
+        }
         //destinationType = navigator.camera.DestinationType;
     },
 
