@@ -211,7 +211,7 @@ var app = angular.module("myPageApp", [])
         }, 100);
 
 
-        scope.$watch('page', function(newValue, oldValue) {
+        $scope.$watch('page', function(newValue, oldValue) {
             if(oldValue=='qr'){
                 $('body').removeClass('cam');
                 $('body').addClass('normal');
