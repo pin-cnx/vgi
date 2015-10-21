@@ -219,8 +219,8 @@ var app = angular.module("myPageApp", [])
 
         $scope.$watch('page', function (newValue, oldValue) {
             if (oldValue == 'qr') {
-                $('body').removeClass('cam');
-                $('body').addClass('normal');
+                //$('body').removeClass('cam');
+                //$('body').addClass('normal');
                 if (typeof cordova !== 'undefined') {
                     //setTimeout(function () {
                   cordova.plugins.camerapreview.stopCamera();
@@ -235,6 +235,8 @@ var app = angular.module("myPageApp", [])
                 if (typeof cordova !== 'undefined') {
                     //cordova.plugins.camerapreview.stopCamera();
                     //setTimeout(function () {
+                    //$('body').removeClass('normal');
+
                     cordova.plugins.camerapreview.startCamera({
                         x: 0,
                         y: 0,
@@ -242,11 +244,11 @@ var app = angular.module("myPageApp", [])
                         height: bodyHeight
                     }, "back", tapEnabled, dragEnabled, toBack);
 
-                    $('.crop').hide();
-                    $('.crop').show();
+                    //$('.crop').hide();
+                    //$('.crop').show();
 
-                    $('body').removeClass('normal');
-                    $('body').addClass('cam');
+
+                    //$('body').addClass('cam');
 
                     //}, 100);
                 }
